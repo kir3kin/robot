@@ -1,0 +1,36 @@
+.container {
+			margin: 30px auto 0;
+			width: 200px;
+			text-align: center;
+		}
+		input[type=text] {
+			display: block;
+			width: 100%;
+			font-size: 14px;
+			padding: 3px;
+		}
+		input[type=button] {
+			margin-top: 10px;
+			font-size: 16px;
+			cursor: pointer;
+		}
+		.success {
+			background: #0f0;
+		}
+		.error {
+			background: #f00;
+		}
+		#result-table {
+			width: 900px;
+			text-align: center;
+			margin: 20px auto 0;
+		}
+		#result-table,
+		#result-table td,
+		#result-table tr {
+			border: 2px solid #aaa;
+		}
+		#result-table td {
+			width: 40px;
+			height: 40px;
+		}
