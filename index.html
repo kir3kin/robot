@@ -2,17 +2,30 @@
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
-	<title>Робот</title>
+	<title>Анализ файла robot.txt</title>
 	<link rel="stylesheet" href="components/main.css">
 </head>
 <body>
 	<div class="container">
 		<form action="" id="parse_site">
-			<input class='parse_value' type="text" name="parse_value" placeholder="Введите адрес сайта">
-			<input id="parse_start" class='parse_start' type="button" value="Анализ" name="parse_start">
+			<label for="parse_value">Анализ файла robot.txt, по адресу:</label>
+			<input id='parse_value' type="text" name="parse_value" placeholder="Введите адрес сайта">
+			<input type="submit" value="Анализ" name="parse_start">
+			<span class="errorInfo"></span>
 		</form>
 	</div>
-	<table rules="all" id="result-table"></table>
+	<p class="load">Происходит анализ файла robot.txt, по указанному адресу...</p>
+	<table rules="all" id="result-table" class="hide">
+		<thead>
+			<th>№</th>
+			<th>Название проверки</th>
+			<th>Статус</th>
+			<th></th>
+			<th>Текущее состояне</th>
+		</thead>
+		<tbody>
+		</tbody>
+	</table>
 	<script src="components/main.js"></script>
 </body>
 </html>

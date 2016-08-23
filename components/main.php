@@ -25,8 +25,11 @@ if (!empty($file)) {
 	}
 
 
-	function buildTable($name_check, $status_check, $current_state, $recom_check) { ?>
+	function buildTable($name_check, $status_check, $current_state, $recom_check) {
+		static $number = 1; ?>
+	<tr class="separate"></tr>
 	<tr>
+		<td rowspan="2"><?= $number ?></td>
 		<td rowspan="2"><?= $name_check ?></td>
 		<td rowspan="2" class="<?= ($status_check === "Ок") ? 'success' : 'error' ?>"><?= $status_check ?></td>
 		<td>Состояние</td>
@@ -36,7 +39,7 @@ if (!empty($file)) {
 		<td>Рекомендации</td>
 		<td><?= $recom_check ?></td>
 	</tr>
-	<?php }
+	<?php $number++; }
 
 	$default['recom_check'] = 'Доработки не требуются';
 	$default['suc'] = "Ок";
@@ -50,7 +53,7 @@ if (!empty($file)) {
 	// headers
 	$file_headers['name_check'] = 'Проверка кода ответа сервера для файла robots.txt';
 	$file_headers['true']['current_state'] = 'Файл robots.txt отдаёт код ответа 200';
-	$file_headers['false']['current_state'] = 'При обращении к Файлу robots.txt сервер возвращает код ответа ' . $data['headers'];
+	$file_headers['false']['current_state'] = 'При обращении к Файлу robots.txt сервер возвращает код ответа ' . $data['headers'][0];
 	$file_headers['false']['recom_check'] = 'Файл robots.txt долже отдавать код ответа 200, иначе файл не будет обрабатываться.';
 
 	// host exist

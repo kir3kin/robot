@@ -1,1 +1,2 @@
 AddDefaultCharset utf-8
+php_value allow_url_fopen On
