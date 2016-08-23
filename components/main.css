@@ -1,6 +1,6 @@
 body {
 	font: 14px Arial, sans-serif;
-	box-sizing: border-box;
+	background: url('http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/sandpaper.png');
 }
 
 .container {
@@ -9,12 +9,11 @@ body {
 	text-align: center;
 }
 
-#parse_site {
-	position: relative;
-}
+#parse_site { position: relative; }/*:::::::::::: форма для ввода адреса сайта */
 
 #parse_site label {
-	font-size: 16px;
+	font-size: 15px;
+	font-weight: bold;
 }
 
 #parse_site input[type=text] {
@@ -28,52 +27,141 @@ body {
 
 #parse_site input[type=submit] {
 	margin-top: 10px;
-	font-size: 16px;
+	font-size: 14px;
 	cursor: pointer;
+	background: #fff;
+	border-radius: 5px;
+	border: none;
+	box-shadow: 0 3px 15px rgba(0,0,0,.25),
+	inset 0 2px 0 rgba(255,255,255,.6),
+	0 2px 0 rgba(0,0,0,.1),
+	inset 0 0 20px rgba(0,0,0,.1);
+	height: 25px;
+	color: #321;
+	font-weight: bold;
 }
 
-#parse_site .errorInfo {
+#parse_site input[type=submit]:hover {
+	box-shadow: inset 0 0 20px rgba(0,0,0,.2),
+	0 2px 0 rgba(255,255,255,.4),
+	inset 0 2px 0 rgba(0,0,0,.1);
+	padding-top: 4px;
+}
+
+#parse_site .errorInfo {/*:::::::::::: поле с выводом ошибок */
 	color: #f00;
 	display: block;
-	height: 40px;
+	max-width: 400px;
+	margin: 20px auto 15px;
 	width: auto;
-	line-height: 40px;
+	font-size: 15px;
+	text-shadow: 1px 0 rgba(0,0,0,.3);
+	line-height: 20px;
 }
 
-.success {
-	background: #93C47D;
-}
-.error {
-	background: #E06666;
-}
-
-.load {
+.load {/*:::::::::::: сообщение об анализе */
 	text-align: center;
 	display: none;
+	font-weight: bold;
+	font-size: 14px;
 }
-#result-table .separate {
-	height: 20px;
-}
-#result-table {
-	width: 900px;
+
+#result {/*:::::::::::: блок с результатами проверки */
+	max-width: 900px;
+	width: auto;
 	text-align: left;
-	margin: 20px auto 0;
+	margin: 0 auto;
 	display: none;
 }
-#result-table,
-#result-table * {
+
+#result h2 {
+	text-align: center;
+	margin-top: 0;
+}
+
+#result .result-table { background: #fff; }/*:::::::::::: таблица с результатами проверки */
+
+#result .result-table,
+#result .result-table * {
 	padding: 3px 5px;
 	border: 2px solid #aaa;
 }
-#result-table th {
-	background-color: #A2C4C9;
-	text-align: center;
-}
-#result-table tbody {
-	margin-top: 2px;
+
+#result .separate {/*:::::::::::: разделитель между пунктами проверки */
+	position: relative;
+	height: 20px;
 }
 
-#result-table tr td:nth-of-type(3) {
-	width: 70px;
+#result .site-name { text-decoration: underline; }/*:::::::::::: адрес сайта, в результате его анализа */
+
+#result .separate::after {
+	content: '';
+	display: block;
+	position: absolute;
+	height: 18px;
+	width: calc(100% - 2px);
+	background: #EFEFEF;
+}
+
+#result tbody {
+	margin-top: 2px;
+	position: relative;
+}
+
+#result th { background-color: #A2C4C9; }
+
+#result th,
+#result tr td:nth-of-type(3),
+#result tr td:nth-of-type(1) {
 	text-align: center;
+}
+
+/* результат проверки */
+#result tr td:nth-of-type(3) { width: 70px; }
+#result .success { background: #93C47D; }
+#result .error { background: #E06666; }
+
+/* :::::::::::: круг загрузки :::::::::::: */
+#circle {
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	top: 5px;
+	border: 3px solid #04f;
+	border-radius: 50%;
+	position: relative;
+	background: transparent;
+	transform-origin: 50%;
+	animation: load 1.5s linear infinite;
+}
+
+#circle::before,
+#circle::after {
+	content: '';
+	display: block;
+	position: absolute;
+	background: url('http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/sandpaper.png');;
+}
+
+#circle::after {
+	width: 6px;
+	height: 18px;
+	top: -3px;
+	left: 3px;
+}
+
+#circle::before {
+	width: 18px;
+	height: 6px;
+	top: 3px;
+	left: -3px;
+}
+
+@keyframes load {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }

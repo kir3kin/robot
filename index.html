@@ -2,30 +2,32 @@
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
-	<title>Анализ файла robot.txt</title>
+	<title>Анализ файла robots.txt</title>
 	<link rel="stylesheet" href="components/main.css">
 </head>
 <body>
 	<div class="container">
-		<form action="" id="parse_site">
-			<label for="parse_value">Анализ файла robot.txt, по адресу:</label>
-			<input id='parse_value' type="text" name="parse_value" placeholder="example.com">
-			<input type="submit" value="Анализ" name="parse_start">
+		<form action="components/main.php" id="parse_site">
+			<label for="parse_value">Анализ файла robots.txt, по адресу:</label>
+			<input class='parse_value' type="text" name="parse_value" placeholder="http://example.com">
+			<input class='start-analysis' type="submit" value="Анализ">
 			<span class="errorInfo"></span>
 		</form>
 	</div>
-	<p class="load">Происходит анализ файла robot.txt, по указанному адресу...</p>
-	<table rules="all" id="result-table" class="hide">
-		<thead>
-			<th>№</th>
-			<th>Название проверки</th>
-			<th>Статус</th>
-			<th></th>
-			<th>Текущее состояне</th>
-		</thead>
-		<tbody>
-		</tbody>
-	</table>
+	<p class="load">Происходит анализ файла robots.txt, по указанному адресу... <span id="circle"></span></p>
+	<div id="result">
+		<h2>Результат анализа файла robots.txt, по адресу: <span class="site-name"></span></h2>
+		<table rules="all" class="result-table" class="hide">
+			<thead>
+				<th>№</th>
+				<th>Название проверки</th>
+				<th>Статус</th>
+				<th></th>
+				<th>Текущее состояне</th>
+			</thead>
+			<tbody></tbody>
+		</table>
+	</div>
 	<script src="components/main.js"></script>
 </body>
 </html>
